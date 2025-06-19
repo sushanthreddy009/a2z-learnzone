@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2Z LearnZone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #ec4899, #4f46e5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .course-card:hover {
+            transform: translateY(-10px) rotateX(10deg) rotateY(10deg);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-700 text-white">
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full glassmorphism z-50">
+        <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">A2Z LearnZone</h1>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-pink-300 transition">Home</a>
+                <a href="#courses" class="hover:text-pink-300 transition">Courses</a>
+                <a href="#enroll" class="hover:text-pink-300 transition">Enroll</a>
+                <a href="#contact" class="hover:text-pink-300 transition">Contact</a>
+                <button id="login-btn" class="hover:text-pink-300 transition">Login</button>
+                <button id="logout-btn" class="hidden hover:text-pink-300 transition">Logout</button>
+            </div>
+            <button id="menu-btn" class="md:hidden">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/90 p-4">
+            <a href="#home" class="block py-2 hover:text-pink-300">Home</a>
+            <a href="#courses" class="block py-2 hover:text-pink-300">Courses</a>
+            <a href="#enroll" class="block py-2 hover:text-pink-300">Enroll</a>
+            <a href="#contact" class="block py-2 hover:text-pink-300">Contact</a>
+            <button id="mobile-login-btn" class="block py-2 hover:text-pink-300">Login</button>
+            <button id="mobile-logout-btn" class="hidden block py-2 hover:text-pink-300">Logout</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center text-center px-4 pt-20">
+        <div class="max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 gradient-text float">A2Z LearnZone</h1>
+            <p class="text-xl md:text-2xl mb-8">Your one-stop destination for mastering technical skills — from basics to advanced.</p>
+            <p class="text-lg mb-8">Learn. Build. Grow — the A2Z way.</p>
+            <a href="#enroll" class="inline-block bg-pink-600 text-white px-8 py-3 rounded-full hover:bg-pink-700 transition transform hover:scale-105">Enroll Now</a>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 px-4">
+        <h2 class="text-4xl font-bold text-center mb-12">Our Courses</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="course-card bg-gray-800/50 p-6 rounded-lg shadow-lg transition transform">
+                <h3 class="text-2xl font-semibold mb-4">Linux (Basics to Advanced)</h3>
+                <p class="text-lg mb-2">₹2,000 – ₹3,500 / $25 – $40</p>
+                <p class="text-gray-300">Practical + job-focused content</p>
+                <div class="mt-4">
+                    <p class="text-sm text-gray-400">Includes:</p>
+                    <ul class="text-sm text-gray-300 list-disc list-inside">
+                        <li>Hands-on Experience</li>
+                        <li>Job-Ready Resume</li>
+                        <li>Mock Interviews</li>
+                        <li>Communication Skills Training</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="course-card bg-gray-800/50 p-6 rounded-lg shadow-lg transition transform">
+                <h3 class="text-2xl font-semibold mb-4">Python Programming</h3>
+                <p class="text-lg mb-2">₹1,500 – ₹2,800 / $20 – $33</p>
+                <p class="text-gray-300">Coding, projects & assignments, interview prep</p>
+                <div class="mt-4">
+                    <p class="text-sm text-gray-400">Includes:</p>
+                    <ul class="text-sm text-gray-300 list-disc list-inside">
+                        <li>Hands-on Experience</li>
+                        <li>Job-Ready Resume</li>
+                        <li>Mock Interviews</li>
+                        <li>Communication Skills Training</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="course-card bg-gray-800/50 p-6 rounded-lg shadow-lg transition transform">
+                <h3 class="text-2xl font-semibold mb-4">SQL (MySQL, Oracle)</h3>
+                <p class="text-lg mb-2">₹1,700 – ₹2,500 / $20 – $30</p>
+                <p class="text-gray-300">Real-world queries + job tips</p>
+                <div class="mt-4">
+                    <p class="text-sm text-gray-400">Includes:</p>
+                    <ul class="text-sm text-gray-300 list-disc list-inside">
+                        <li>Hands-on Experience</li>
+                        <li>Job-Ready Resume</li>
+                        <li>Mock Interviews</li>
+                        <li>Communication Skills Training</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="course-card bg-gray-800/50 p-6 rounded-lg shadow-lg transition transform">
+                <h3 class="text-2xl font-semibold mb-4">C++</h3>
+                <p class="text-lg mb-2">₹1,200 – ₹2,100 / $15 – $25</p>
+                <p class="text-gray-300">Basics + intermediate with problem-solving</p>
+                <div class="mt-4">
+                    <p class="text-sm text-gray-400">Includes:</p>
+                    <ul class="text-sm text-gray-300 list-disc list-inside">
+                        <li>Hands-on Experience</li>
+                        <li>Job-Ready Resume</li>
+                        <li>Mock Interviews</li>
+                        <li>Communication Skills Training</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="course-card bg-gray-800/50 p-6 rounded-lg shadow-lg transition transform">
+                <h3 class="text-2xl font-semibold mb-4">Web Development</h3>
+                <p class="text-lg mb-2">₹2,800 – ₹3,800 / $33 – $45</p>
+                <p class="text-gray-300">HTML, CSS, JS, React & intro to backend</p>
+                <div class="mt-4">
+                    <p class="text-sm text-gray-400">Includes:</p>
+                    <ul class="text-sm text-gray-300 list-disc list-inside">
+                        <li>Hands-on Experience</li>
+                        <li>Job-Ready Resume</li>
+                        <li>Mock Interviews</li>
+                        <li>Communication Skills Training</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="course-card bg-gray-800/50 p-6 rounded-lg shadow-lg transition transform">
+                <h3 class="text-2xl font-semibold mb-4">Cybersecurity (Basics)</h3>
+                <p class="text-lg mb-2">₹2,000 – ₹3,500 / $25 – $40</p>
+                <p class="text-gray-300">Tools, techniques + interview prep</p>
+                <div class="mt-4">
+                    <p class="text-sm text-gray-400">Includes:</p>
+                    <ul class="text-sm text-gray-300 list-disc list-inside">
+                        <li>Hands-on Experience</li>
+                        <li>Job-Ready Resume</li>
+                        <li>Mock Interviews</li>
+                        <li>Communication Skills Training</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="course-card bg-gray-800/50 p-6 rounded-lg shadow-lg transition transform">
+                <h3 class="text-2xl font-semibold mb-4">Machine Learning</h3>
+                <p class="text-lg mb-2">₹1,700 – ₹2,500 / $20 – $30</p>
+                <p class="text-gray-300">Beginner-friendly with hands-on projects</p>
+                <div class="mt-4">
+                    <p class="text-sm text-gray-400">Includes:</p>
+                    <ul class="text-sm text-gray-300 list-disc list-inside">
+                        <li>Hands-on Experience</li>
+                        <li>Job-Ready Resume</li>
+                        <li>Mock Interviews</li>
+                        <li>Communication Skills Training</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="course-card bg-gray-800/50 p-6 rounded-lg shadow-lg transition transform">
+                <h3 class="text-2xl font-semibold mb-4">Docker & Kubernetes</h3>
+                <p class="text-lg mb-2">₹2,500 – ₹4,000 / $33 – $47</p>
+                <p class="text-gray-300">DevOps essentials with hands-on labs</p>
+                <div class="mt-4">
+                    <p class="text-sm text-gray-400">Includes:</p>
+                    <ul class="text-sm text-gray-300 list-disc list-inside">
+                        <li>Hands-on Experience</li>
+                        <li>Job-Ready Resume</li>
+                        <li>Mock Interviews</li>
+                        <li>Communication Skills Training</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="course-card bg-gray-800/50 p-6 rounded-lg shadow-lg transition transform">
+                <h3 class="text-2xl font-semibold mb-4">Full Combo – Job Pack</h3>
+                <p class="text-lg mb-2">₹7,000 / $81</p>
+                <p class="text-gray-300">All courses, resume, mock interviews, mentorship</p>
+                <div class="mt-4">
+                    <p class="text-sm text-gray-400">Includes:</p>
+                    <ul class="text-sm text-gray-300 list-disc list-inside">
+                        <li>Hands-on Experience</li>
+                        <li>Job-Ready Resume</li>
+                        <li>Mock Interviews</li>
+                        <li>Communication Skills Training</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Section -->
+    <section id="enroll" class="py-20 px-4 bg-gray-900/30">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-8">Enroll Now</h2>
+            <div id="enroll-confirmation" class="hidden text-center text-green-400">Thank you for enrolling! We'll reach out soon.</div>
+            <form id="enroll-form" class="space-y-6">
+                <div>
+                    <input type="text" id="enroll-name" placeholder="Full Name" class="w-full p-3 bg-gray-800/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <p id="enroll-name-error" class="text-red-400 text-sm hidden">Name is required</p>
+                </div>
+                <div>
+                    <input type="email" id="enroll-email" placeholder="Email Address" class="w-full p-3 bg-gray-800/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <p id="enroll-email-error" class="text-red-400 text-sm hidden">Valid email is required</p>
+                </div>
+                <div>
+                    <input type="text" id="enroll-contact" placeholder="Contact Number" class="w-full p-3 bg-gray-800/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <p id="enroll-contact-error" class="text-red-400 text-sm hidden">Valid 10-digit contact number is required</p>
+                </div>
+                <div>
+                    <select id="enroll-course" class="w-full p-3 bg-gray-800/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <option value="">Select a Course</option>
+                        <option value="Linux (Basics to Advanced)">Linux (Basics to Advanced)</option>
+                        <option value="Python Programming">Python Programming</option>
+                        <option value="SQL (MySQL, Oracle)">SQL (MySQL, Oracle)</option>
+                        <option value="C++">C++</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Cybersecurity (Basics)">Cybersecurity (Basics)</option>
+                        <option value="Machine Learning">Machine Learning</option>
+                        <option value="Docker & Kubernetes">Docker & Kubernetes</option>
+                        <option value="Full Combo – Job Pack">Full Combo – Job Pack</option>
+                    </select>
+                    <p id="enroll-course-error" class="text-red-400 text-sm hidden">Please select a course</p>
+                </div>
+                <button type="submit" class="w-full bg-pink-600 text-white p-3 rounded-lg hover:bg-pink-700 transition transform hover:scale-105">Submit Enrollment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-8">Contact Us</h2>
+            <div id="contact-confirmation" class="hidden text-center text-green-400">Message sent successfully! We'll get back to you soon.</div>
+            <form id="contact-form" class="space-y-6">
+                <div>
+                    <input type="text" id="contact-name" placeholder="Full Name" class="w-full p-3 bg-gray-800/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <p id="contact-name-error" class="text-red-400 text-sm hidden">Name is required</p>
+                </div>
+                <div>
+                    <input type="email" id="contact-email" placeholder="Email Address" class="w-full p-3 bg-gray-800/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <p id="contact-email-error" class="text-red-400 text-sm hidden">Valid email is required</p>
+                </div>
+                <div>
+                    <textarea id="contact-message" placeholder="Your Message" class="w-full p-3 bg-gray-800/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500" rows="5"></textarea>
+                    <p id="contact-message-error" class="text-red-400 text-sm hidden">Message is required</p>
+                </div>
+                <button type="submit" class="w-full bg-pink-600 text-white p-3 rounded-lg hover:bg-pink-700 transition transform hover:scale-105">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center bg-gray-900/50">
+        <p>Reach us: <a href="https://wa.me/919391778282" class="underline">WhatsApp</a> | <a href="mailto:learnzoneaz@gmail.com" class="underline">learnzoneaz@gmail.com</a></p>
+        <p class="mt-2">© 2025 A2Z LearnZone. All rights reserved.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-gray-800/50 p-8 rounded-lg max-w-md w-full">
+            <h2 class="text-3xl font-bold text-center mb-6">Login</h2>
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <input type="email" id="login-email" placeholder="Email Address" class="w-full p-3 bg-gray-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <p id="login-email-error" class="text-red-400 text-sm hidden">Valid email is required</p>
+                </div>
+                <div>
+                    <input type="password" id="login-password" placeholder="Password" class="w-full p-3 bg-gray-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <p id="login-password-error" class="text-red-400 text-sm hidden">Password is required</p>
+                </div>
+                <button type="submit" class="w-full bg-pink-600 text-white p-3 rounded-lg hover:bg-pink-700 transition transform hover:scale-105">Login</button>
+                <button type="button" id="forgot-password-btn" class="w-full text-pink-400 hover:underline">Forgot Password?</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgot-password-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-gray-800/50 p-8 rounded-lg max-w-md w-full">
+            <h2 class="text-3xl font-bold text-center mb-6">Forgot Password</h2>
+            <div id="forgot-password-confirmation" class="hidden text-center text-green-400">Password reset email sent! Check your inbox.</div>
+            <form id="forgot-password-form" class="space-y-6">
+                <div>
+                    <input type="email" id="forgot-password-email" placeholder="Email Address" class="w-full p-3 bg-gray-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <p id="forgot-password-email-error" class="text-red-400 text-sm hidden">Valid email is required</p>
+                </div>
+                <button type="submit" class="w-full bg-pink-600 text-white p-3 rounded-lg hover:bg-pink-700 transition transform hover:scale-105">Send Reset Email</button>
+                <button type="button" id="back-to-login-btn" class="w-full text-pink-400 hover:underline">Back to Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Logout Modal -->
+    <div id="logout-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-gray-800/50 p-8 rounded-lg max-w-md w-full text-center">
+            <h2 class="text-3xl font-bold mb-6">Logout</h2>
+            <p class="text-lg mb-6">Are you sure you want to log out?</p>
+            <button id="confirm-logout-btn" class="bg-pink-600 text-white p-3 rounded-lg hover:bg-pink-700 transition transform hover:scale-105">Confirm Logout</button>
+        </div>
+    </div>
+
+    <script>
+        let isLoggedIn = false;
+
+        // Mobile Menu Toggle
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Login Modal
+        const loginBtn = document.getElementById('login-btn');
+        const mobileLoginBtn = document.getElementById('mobile-login-btn');
+        const loginModal = document.getElementById('login-modal');
+        const loginForm = document.getElementById('login-form');
+
+        loginBtn.addEventListener('click', () => {
+            loginModal.classList.remove('hidden');
+        });
+        mobileLoginBtn.addEventListener('click', () => {
+            loginModal.classList.remove('hidden');
+        });
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const emailError = document.getElementById('login-email-error');
+            const passwordError = document.getElementById('login-password-error');
+
+            emailError.classList.add('hidden');
+            passwordError.classList.add('hidden');
+
+            let hasError = false;
+            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                emailError.classList.remove('hidden');
+                hasError = true;
+            }
+            if (!password) {
+                passwordError.classList.remove('hidden');
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+                if (response.ok) {
+                    isLoggedIn = true;
+                    loginModal.classList.add('hidden');
+                    document.getElementById('login-btn').classList.add('hidden');
+                    document.getElementById('mobile-login-btn').classList.add('hidden');
+                    document.getElementById('logout-btn').classList.remove('hidden');
+                    document.getElementById('mobile-logout-btn').classList.remove('hidden');
+                    loginForm.reset();
+                } else {
+                    alert('Invalid credentials');
+                }
+            } catch (error) {
+                alert('Error logging in');
+            }
+        });
+
+        // Forgot Password Modal
+        const forgotPasswordBtn = document.getElementById('forgot-password-btn');
+        const forgotPasswordModal = document.getElementById('forgot-password-modal');
+        const forgotPasswordForm = document.getElementById('forgot-password-form');
+        const backToLoginBtn = document.getElementById('back-to-login-btn');
+
+        forgotPasswordBtn.addEventListener('click', () => {
+            loginModal.classList.add('hidden');
+            forgotPasswordModal.classList.remove('hidden');
+        });
+
+        backToLoginBtn.addEventListener('click', () => {
+            forgotPasswordModal.classList.add('hidden');
+            loginModal.classList.remove('hidden');
+        });
+
+        forgotPasswordForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('forgot-password-email').value;
+            const emailError = document.getElementById('forgot-password-email-error');
+            const confirmation = document.getElementById('forgot-password-confirmation');
+
+            emailError.classList.add('hidden');
+            confirmation.classList.add('hidden');
+
+            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                emailError.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/forgot-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email }),
+                });
+                if (response.ok) {
+                    confirmation.classList.remove('hidden');
+                    forgotPasswordForm.classList.add('hidden');
+                    setTimeout(() => {
+                        forgotPasswordModal.classList.add('hidden');
+                        loginModal.classList.remove('hidden');
+                        forgotPasswordForm.classList.remove('hidden');
+                        confirmation.classList.add('hidden');
+                        forgotPasswordForm.reset();
+                    }, 5000);
+                } else {
+                    alert('Failed to send reset email');
+                }
+            } catch (error) {
+                alert('Error sending reset email');
+            }
+        });
+
+        // Logout Modal
+        const logoutBtn = document.getElementById('logout-btn');
+        const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+        const logoutModal = document.getElementById('logout-modal');
+        const confirmLogoutBtn = document.getElementById('confirm-logout-btn');
+
+        logoutBtn.addEventListener('click', () => {
+            logoutModal.classList.remove('hidden');
+        });
+        mobileLogoutBtn.addEventListener('click', () => {
+            logoutModal.classList.remove('hidden');
+        });
+
+        confirmLogoutBtn.addEventListener('click', () => {
+            isLoggedIn = false;
+            logoutModal.classList.add('hidden');
+            document.getElementById('login-btn').classList.remove('hidden');
+            document.getElementById('mobile-login-btn').classList.remove('hidden');
+            document.getElementById('logout-btn').classList.add('hidden');
+            document.getElementById('mobile-logout-btn').classList.add('hidden');
+        });
+
+        // Enrollment Form
+        const enrollForm = document.getElementById('enroll-form');
+        enrollForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('enroll-name').value;
+            const email = document.getElementById('enroll-email').value;
+            const contact = document.getElementById('enroll-contact').value;
+            const course = document.getElementById('enroll-course').value;
+            const nameError = document.getElementById('enroll-name-error');
+            const emailError = document.getElementById('enroll-email-error');
+            const contactError = document.getElementById('enroll-contact-error');
+            const courseError = document.getElementById('enroll-course-error');
+            const confirmation = document.getElementById('enroll-confirmation');
+
+            nameError.classList.add('hidden');
+            emailError.classList.add('hidden');
+            contactError.classList.add('hidden');
+            courseError.classList.add('hidden');
+            confirmation.classList.add('hidden');
+
+            let hasError = false;
+            if (!name) {
+                nameError.classList.remove('hidden');
+                hasError = true;
+            }
+            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                emailError.classList.remove('hidden');
+                hasError = true;
+            }
+            if (!contact || !/^\d{10}$/.test(contact)) {
+                contactError.classList.remove('hidden');
+                hasError = true;
+            }
+            if (!course) {
+                courseError.classList.remove('hidden');
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            try {
+                const response = await fetch('/api/enroll', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, contact, course }),
+                });
+                if (response.ok) {
+                    confirmation.classList.remove('hidden');
+                    enrollForm.classList.add('hidden');
+                    setTimeout(() => {
+                        enrollForm.classList.remove('hidden');
+                        confirmation.classList.add('hidden');
+                        enrollForm.reset();
+                    }, 5000);
+                } else {
+                    alert('Failed to submit enrollment');
+                }
+            } catch (error) {
+                alert('Error submitting enrollment');
+            }
+        });
+
+        // Contact Form
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+            const nameError = document.getElementById('contact-name-error');
+            const emailError = document.getElementById('contact-email-error');
+            const messageError = document.getElementById('contact-message-error');
+            const confirmation = document.getElementById('contact-confirmation');
+
+            nameError.classList.add('hidden');
+            emailError.classList.add('hidden');
+            messageError.classList.add('hidden');
+            confirmation.classList.add('hidden');
+
+            let hasError = false;
+            if (!name) {
+                nameError.classList.remove('hidden');
+                hasError = true;
+            }
+            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                emailError.classList.remove('hidden');
+                hasError = true;
+            }
+            if (!message) {
+                messageError.classList.remove('hidden');
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, message }),
+                });
+                if (response.ok) {
+                    confirmation.classList.remove('hidden');
+                    contactForm.classList.add('hidden');
+                    setTimeout(() => {
+                        contactForm.classList.remove('hidden');
+                        confirmation.classList.add('hidden');
+                        contactForm.reset();
+                    }, 5000);
+                } else {
+                    alert('Failed to send message');
+                }
+            } catch (error) {
+                alert('Error sending message');
+            }
+        });
+    </script>
+</body>
+</html>
